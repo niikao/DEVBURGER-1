@@ -8,13 +8,13 @@ class OrderController {
     async store(request, response) {
         const schema = Yup.object({
             products: Yup.array()
-            .required()
-            .of(
-                Yup.object({
-                    id: Yup.number().required(),
-                    quantity: Yup.number().required(),
-                }),
-            ),
+                .required()
+                .of(
+                    Yup.object({
+                        id: Yup.number().required(),
+                        quantity: Yup.number().required(),
+                    }),
+                ),
         });
 
         try {
@@ -76,7 +76,7 @@ class OrderController {
 
     async update(request, response) {
         const schema = Yup.object({
-            products: Yup.string().required().
+            products: Yup.string().required()
         });
 
         try {
@@ -85,18 +85,18 @@ class OrderController {
             return response.status(400).json({ error: err.message });
         }
 
-        const { admin: isAdmin} = await User.findByPk(request.userId);
+        const { admin: isAdmin } = await User.findByPk(request.userId);
 
-        if(!isAdmin){
+        if (!isAdmin) {
             return response.status(401).json();
         }
 
-        const {id} = request.params;
-        const {status} = request.body;
+        const { id } = request.params;
+        const { status } = request.body;
 
-        await Order.updateOne({_id: id}, {status});
+        await Order.updateOne({ _id: id }, { status });
 
-        return  response.json({message: 'Status update sucessfully'})
+        return response.json({ message: 'Status update sucessfully' })
     }
 }
 export default new OrderController();
