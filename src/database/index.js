@@ -17,14 +17,19 @@ class Database {
 
     init() {
         this.connection = new Sequelize(configDatabase);
-        models
-            .map((model) => model.init(this.connection))
-        map(
-            (model) => model.associate && model.associate(this.connection.models),
-        );
+    
+        // Inicializa todos os modelos
+        models.forEach((model) => model.init(this.connection));
+    
+        // Associa todos os modelos
+        models.forEach((model) => {
+            if (model.associate) {
+                model.associate(this.connection.models);
+            }
+        });
     }
 
-    mongo( ){
+    mongo() {
         this.mongoConnection = mongoose.connect(
             'mongodb://localhost:27017/devburguer',
         );

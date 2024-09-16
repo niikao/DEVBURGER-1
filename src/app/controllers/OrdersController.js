@@ -1,10 +1,10 @@
 import * as Yup from 'yup';
 import Order from '../schemas/Order'
-import Products from '../models/Product';
+import Product from '../models/Product';
 import Category from '../models/Category';
 import User from '../models/User';
 
-class OrderController {
+class OrdersController {
     async store(request, response) {
         const schema = Yup.object({
             products: Yup.array()
@@ -42,7 +42,7 @@ class OrderController {
         });
 
         const formattedProducts = findProducts.map((product) => {
-            const productIndex = products.findIndex(item => item.id === product.id);
+            const productIndex = products.findIndex((item) => item.id === product.id);
 
             const newProduct = {
                 id: product.id,
@@ -96,7 +96,7 @@ class OrderController {
 
         await Order.updateOne({ _id: id }, { status });
 
-        return response.json({ message: 'Status update sucessfully' })
+        return response.json({ message: 'Status update successfully' })
     }
 }
-export default new OrderController();
+export default new OrdersController();
