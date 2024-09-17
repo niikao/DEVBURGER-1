@@ -1,16 +1,25 @@
 import { v4 } from 'uuid'
-
+import * as Yup from 'yup'
 import User from '../models/User'
+import { response } from 'express';
+
+
+
 
 class UserController {
     async store(request, response) {
         const schema = Yup.object({
-            name: Yup.string().required(),
-            email: Yup.string().email().required(),
-            password: Yup.string().min(6).required(),
-            admin: Yup.boolean(),
+            name: Yup.string()
+                .trim()
+                .required('O nome é obrigatório.'),
+            email: Yup.string()
+                .email('O email deve ser um endereço de email válido.')
+                .required('O email é obrigatório.'),
+            password: Yup.string()
+                .min(6, 'A senha deve ter pelo menos 6 caracteres.')
+                .required('A senha é obrigatória.'),
+            admin: Yup.boolean()
         });
-
 
         try {
             schema.validation(request.body, { abortEarly: false });
