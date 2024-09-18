@@ -14,7 +14,7 @@ class SessionController {
         const isValid = await schema.isValid(request.body);
 
         const emailOrPasswordincorrect = () => {
-            return response
+            response
                 .status(401)
                 .json({ error: 'Validation fails' });
         }
@@ -52,9 +52,9 @@ class SessionController {
             name: user.name,
             email,
             admin: user.admin,
-            token: jwt.sign({ id: user.id, name: user.name }, authConfig.secret, {
+            token: jwt.sign({ id: user.id }, authConfig.secret, {
                 expiresIn: authConfig.expiresIn,
-            })
+            }),
         });
     }
 }

@@ -6,13 +6,12 @@ module.exports = {
         primaryKey: true,
         allowNull: false,
         type: Sequelize.UUID,
-        defaultValue: Sequelize.UUID4,
+        defaultvalue: Sequelize.UUID4,
       },
       name: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      course_id: 342,
       email: {
         type: Sequelize.STRING,
         allowNull: false,

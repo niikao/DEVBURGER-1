@@ -5,7 +5,7 @@ import User from '../models/User'
 class CategoryController {
     async store(request, response) {
         const schema = Yup.object({
-            name: Yup.string().required(),
+            name: Yup.string().required()
         });
 
 
