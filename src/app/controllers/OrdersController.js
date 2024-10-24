@@ -17,6 +17,9 @@ class OrdersController {
                 ),
         });
 
+
+        [{ id: q34234, quantity: 3 }]
+
         try {
             schema.validateSync(request.body, { abortEarly: false });
         } catch (err) {

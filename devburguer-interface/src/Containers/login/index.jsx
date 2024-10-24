@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import { toast } from 'react-toastify'
 import { api } from '../../services/api'
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../hooks/UserContext'
 import {
     Container,
     Form,
@@ -19,6 +20,7 @@ import { Button } from '../../components/Button'
 
 export function Login() {
     const navigate = useNavigate();
+    const { putUserData } = useUser();
 
 
     const schema = yup
@@ -46,7 +48,7 @@ export function Login() {
     console.log(errors);
 
     const onSubmit = async (data) => {
-        const response = await toast.promise(
+        const { data: userData } = await toast.promise(
             api.post('/session', {
                 email: data.email,
                 password: data.password,
@@ -57,19 +59,21 @@ export function Login() {
                     render() {
                         setTimeout(() => {
                             navigate('/');
-                        },2000);
+                        }, 2000);
                         return 'Seja Bem-vindo(a) 😎 '
                     },
                 },
                 error: ' Email ou Senha Incorretos 😡',
             },
         );
-        console.log(response)
+
+        putUserData(userData);
+    
     };
 
 
     return (
-        <Container>
+        <ContainerButton>
             <LeftContainer>
                 <img src={Logo} alt="logo-devburger" />
             </LeftContainer>
@@ -99,6 +103,6 @@ export function Login() {
                     Não possui conta? <Link to='/cadastro'>Clique aqui</Link>
                 </p>
             </RightContainer>
-        </Container>
+        </ContainerButton>
     );
 }; 

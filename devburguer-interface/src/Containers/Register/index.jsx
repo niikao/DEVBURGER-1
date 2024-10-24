@@ -50,9 +50,10 @@ export function Register() {
   console.log(errors);
 
   const onSubmit = async (data) => {
-
     try {
-      const { status } = await api.post('/users', {
+      const { status } = await api.post(
+        '/users', 
+        {
         name: data.name,
         email: data.email,
         password: data.password,
