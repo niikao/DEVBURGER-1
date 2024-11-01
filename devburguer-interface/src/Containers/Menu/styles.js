@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BannerHamburguer from '../../assets/BannerHamburguer'
+import BannerHamburguer from '../assets/BannerHamburguer'
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`

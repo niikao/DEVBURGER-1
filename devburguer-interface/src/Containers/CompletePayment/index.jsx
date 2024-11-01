@@ -1,8 +1,10 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { useEffect, useState } from "react";
 import {
     useStripe,
 } from "@stripe/react-stripe-js";
-import "../../components/Stripe/style.css";
+import "../../components/Stripe/styles.css";
+
 
 const SuccessIcon =
     <svg

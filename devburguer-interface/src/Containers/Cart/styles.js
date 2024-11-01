@@ -9,7 +9,7 @@ export const Container = styled.div`
         rgba(255, 255, 255, 0.6)
     ),
     url('${Background');
-min - width: 100vh;
+    min-width: 100vh;
 `;
 export const Banner = styled.div`
 background: url('${Texture}');
@@ -30,12 +30,12 @@ height: 180px;
 `;
 
 export const Title = styled.div`
-font - size: 32px;
-font - weight: 800;
-padding - bottom: 12px;
-color: #61a120;
-text - align: center;
-position: relative;
+    font-size: 32px;
+    font-weight: 800;
+    padding-bottom: 12px;
+    color: #61a120;
+    text-align: center;
+    position: relative;
 
     &::after {
     position: absolute;
@@ -44,15 +44,15 @@ position: relative;
     content: '';
     width: 56px;
     height: 4px;
-    background - color: #61a120;
+    background-color: #61a120;
 
 }
 `;
 export const Content = styled.div`
-display: grid;
-grid - template - columns: 1fr 30%;
-gap: 40px;
-width: 1280px;
-padding: 40px;
-margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 30%;
+    gap: 40px;
+    width: 1280px;
+    padding: 40px;
+    margin: 0 auto;
 `;

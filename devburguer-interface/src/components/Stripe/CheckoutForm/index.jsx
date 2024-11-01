@@ -6,7 +6,7 @@ import {
     useElements
 } from "@stripe/react-stripe-js";
 import { useLocation, useNavigate } from "react-router-dom";
-import '../styles.'
+import '../../Stripe/CheckoutForm/styles.css'   
 import { useCart } from "../../../hooks/CartContext";
 import { api } from "../../../services/api";
 import { toast } from "react-toastify";

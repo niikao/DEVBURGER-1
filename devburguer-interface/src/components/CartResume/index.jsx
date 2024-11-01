@@ -73,5 +73,3 @@ export function CartResume() {
       <Button onClick={submitOrder}>Finalizar Pedido</Button>
       );
 }
-
-

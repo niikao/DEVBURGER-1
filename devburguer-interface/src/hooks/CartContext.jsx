@@ -3,7 +3,7 @@ import { useContext, createContext, useEffect, useState } from "react";
 
 const CartContext = createContext({});
 
-export const CartProvider = ({ children }) => {
+export const CartProvider = ({...children }) => { 
     const [cartProducts, setCartProducts] = useState([])
 
     const putProductsInCart = (product) => {
@@ -69,7 +69,7 @@ export const CartProvider = ({ children }) => {
             deleteProduct(productId);
         }
     };
-    const updateLocalStorage = (products){
+    const updateLocalStorage = (products) => {
         localStorage.setItem('devburger:carrinho', JSON.stringify(product));
     };
 

@@ -20,6 +20,8 @@
     "react-hook-form": "^7.53.0",
     "react-multi-carousel": "^2.8.5",
     "react-router-dom": "^6.26.1",
+    "react-toast": "^1.0.3",
+    "react-toastify": "^10.0.6",
     "styled-components": "^6.1.13",
     "toastify": "^2.0.1",
     "yup": "^1.4.0"
